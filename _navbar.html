@@ -1,6 +1,6 @@
 <!-- Nav -->
-<nav class="navbar fixed-top navbar-expand-lg navbar-light p-md-5">
-    <div class="container" style="font-family: Nunito Sans, sans-serif;">
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark p-md-4 p-lg-4">
+    <div class="container nav-con" style="font-family: Nunito Sans, sans-serif;">
         <a class="navbar-brand fs-4" href="/Home">TechFirst</a>
         <button
             class="navbar-toggler"
@@ -13,11 +13,11 @@
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarNav">
+        <div class="collapse navbar-collapse text-white text-center" id="navbarNav">
             <div class="mx-auto"></div>
             <ul class="navbar-nav fs-5">
                 <li class="nav-item nav_letter active">
-                    <a class="nav-link active mx-4 mt-1 " href="#">Home</a>
+                    <a class="nav-link mx-4 mt-1 " href="/Home">Home</a>
                 </li>
                 <li class="nav-item nav_letter">
                     <a class="nav-link mx-4 mt-1" href="#">Products</a>
@@ -25,6 +25,9 @@
                 <li class="nav-item nav_letter">
                     <a class="nav-link mx-4 mt-1" href="#">Rewards</a>
                 </li>
+                <li class="nav-item nav_letter">
+                    <a class="nav-link mx-4 mt-1" href="#">Suppliers</a>
+
                 <li class="nav-item nav_letter">
                     <a class="nav-link mx-4 mt-1" href="#">Support</a>
                 </li>
@@ -76,41 +79,113 @@
                                         1.664h10Z"/>
                                     </svg></a>
                             </li>
-                            <a class="btn ms-4 mt-1 d-inline-block" data-bs-toggle="offcanvas" href="#offcanvasWithBothOptions" role="button" aria-controls="offcanvasWithBothOptions">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
-                                    <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
-                                  </svg>
+                            <a class="btn ms-4 mt-1 d-inline-block list_icon" data-bs-toggle="offcanvas" href="#offcanvasWithBothOptions" role="button" aria-controls="offcanvasWithBothOptions" style="margin-right:2.5%">
+                                <i class="bi bi-list fs-3"></i>
                               </a>
                         </ul>
                     </div>
                 </div>
             </nav>
 
-            <div class="offcanvas offcanvas-start" data-bs-scroll="true"
+            <div class="offcanvas offcanvas-start offcanvas_navigation text-white" data-bs-scroll="true"
                 tabindex="-1" id="offcanvasWithBothOptions"
                 aria-labelledby="offcanvasWithBothOptionsLabel">
                 <div class="offcanvas-header">
-                    <h5 class="offcanvas-title fs-2 p-4"
+                    <h5 class="offcanvas-title fs-2 p-4 fw-bold"
                         id="offcanvasWithBothOptionsLabel">Dashboard</h5>
+                        <br>
                     <button type="button" class="btn-close m-5"
                         data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
                 <div class="offcanvas-body">
+                    {% if date_time <=11 %}
+                    <h6 class="fs-5 p-4 mb-3 fw-bold">Good Morning, Admin Name</h6>
+                    {% elif date_time <=17 %}
+                    <h6 class="fs-5 p-4 mb-3 fw-bold">Good Afternoon, Admin Name</h6>
+                    {% elif date_time <=19 %}
+                    <h6 class="fs-5 p-4 mb-3 fw-bold">Good Evening, Admin Name</h6>
+                    {% elif date_time <=23 %}
+                    <h6 class="fs-5 p-4 mb-3 fw-bold">Good Night, Admin Name</h6>
+                    {% endif %}
+                    <hr class="hr_offcanvas bg-secondary border-secondary mx-4">
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                          <a class="vert nav-link p-4" aria-current="page" href="/createProduct">Account Manangement</a>
+                          <a class="vert nav-link p-4 dashboard_link" href=""
+                          data-bs-toggle="collapse" data-bs-target="#collapseAccount" aria-expanded="false" aria-controls="collapseAccount">
+                          <i class="bi bi-people-fill"></i>Account Manangement</a>
+
+                          <div class="collapse" id="collapseAccount">
+                            <div class="container">
+                                <ul class="collapse-ul ms-5">
+                                    <li><a class="dropdown-item collapse-itemss bg-transparent py-3" href="#">Action</a></li>
+                                    <li><a class="dropdown-item collapse-itemss bg-transparent py-3" href="#">Another action</a></li>
+                                    <li><a class="dropdown-item collapse-itemss bg-transparent py-3" href="#">Something else here</a></li>
+                                </ul>
+                            </div>
+                          </div>
+
                         </li>
                         <li class="nav-item">
-                          <a class="vert nav-link p-4 " href="#">Products Manangement</a>
+                          <a class="vert nav-link p-4 dashboard_link" href=""
+                          data-bs-toggle="collapse" data-bs-target="#collapseProduct" aria-expanded="false" aria-controls="collapseProduct">
+                          <i class="bi bi-bag-check-fill"></i>Products Manangement</a>
+
+                          <div class="collapse" id="collapseProduct">
+                            <div class="container">
+                                <ul class="collapse-ul ms-5">
+                                    <li><a class="dropdown-item collapse-itemss bg-transparent py-3" href="/Product_Management">Product Details</a></li>
+                                    <li><a class="dropdown-item collapse-itemss bg-transparent py-3" href="/createProduct">Create Product</a></li>
+                                </ul>
+                            </div>
+                          </div>
                         </li>
                         <li class="nav-item ">
-                          <a class="vert nav-link p-4 " href="#">Inventory Manangement</a>
+                          <a class="vert nav-link p-4 dashboard_link" href=""
+                          data-bs-toggle="collapse" data-bs-target="#collapseInventory" aria-expanded="false" aria-controls="collapseInventory">
+                          <i class="bi bi-gear-fill"></i>Inventory Manangement</a>
+
+                          <div class="collapse" id="collapseInventory">
+                            <div class="container">
+                                <ul class="collapse-ul ms-5">
+                                    <li><a class="dropdown-item collapse-itemss bg-transparent py-3" href="#">Action</a></li>
+                                    <li><a class="dropdown-item collapse-itemss bg-transparent py-3" href="#">Another action</a></li>
+                                    <li><a class="dropdown-item collapse-itemss bg-transparent py-3" href="#">Something else here</a></li>
+                                </ul>
+                            </div>
+                          </div>
+
                         </li>
                         <li class="nav-item">
-                            <a class="vert nav-link p-4 " href="#">Reward Manangement</a>
+                            <a class="vert nav-link p-4 dashboard_link" href=""
+                            data-bs-toggle="collapse" data-bs-target="#collapseReward" aria-expanded="false" aria-controls="collapseReward">
+                            <i class="bi bi-gift-fill"></i> Reward Manangement</a>
+
+                            <div class="collapse" id="collapseReward">
+                                <div class="container">
+                                    <ul class="collapse-ul ms-5">
+                                        <li><a class="dropdown-item collapse-itemss bg-transparent py-3" href="#">Action</a></li>
+                                        <li><a class="dropdown-item collapse-itemss bg-transparent py-3" href="#">Another action</a></li>
+                                        <li><a class="dropdown-item collapse-itemss bg-transparent py-3" href="#">Something else here</a></li>
+                                    </ul>
+                                </div>
+                              </div>
+
                         </li>
                         <li class="nav-item">
-                            <a class="vert nav-link p-4 " href="#">Payment & Customer Service Manangement</a>
+                            <a class="vert nav-link p-4 dashboard_link" href=""
+                            data-bs-toggle="collapse" data-bs-target="#collapsePCS" aria-expanded="false" aria-controls="collapsePCS">
+                            <i class="bi bi-credit-card-fill"></i> Payment & Customer Service Manangement</a>
+
+                            <div class="collapse" id="collapsePCS">
+                                <div class="container">
+                                    <ul class="collapse-ul ms-5">
+                                        <li><a class="dropdown-item collapse-itemss bg-transparent py-3" href="#">Action</a></li>
+                                        <li><a class="dropdown-item collapse-itemss bg-transparent py-3" href="#">Another action</a></li>
+                                        <li><a class="dropdown-item collapse-itemss bg-transparent py-3" href="#">Something else here</a></li>
+                                    </ul>
+                                </div>
+                              </div>
+
                         </li>
                       </ul>
                 </div>
